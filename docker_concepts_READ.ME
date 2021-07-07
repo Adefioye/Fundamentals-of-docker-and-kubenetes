@@ -1,0 +1,43 @@
+Docker is an entire ecosystem of tools needed to run containerised applications
+
+Kernel is a software process that govern the system of interactions between running processes and
+physical hardwares.
+
+System call is a software process that pass information from running processes to the kernel 
+
+Namespacing is an OS concept that helps to isolate running processes and a group of hardware resources
+
+Control groups allow us to limit the amount of resources allocated to running processes 
+
+Containers are running processes along with a subset of system resources allocated to them 
+
+Images are a snapshot of a filesystem and a specific startup command 
+---------------------------------------------------------------------------------------------------------
+
+docker run hello-world --> This runs an image with a filesystem snapshot and a run command;
+
+docker run <image_name> <command!> --> The command is supplied to overwrite the "run" command of an image 
+
+docker run busybox echo crazy bastard --> If image succesfully pulled into the OS, crazy bastard is printed out by the 
+docker CLI.
+
+docker run = docker create + docker start 
+
+docker start <container id> --> To rerun a stopped container 
+
+docker start -a <container id> --> To rerun and print out the output on the CLI 
+
+docker system prune --> To remove all containers, networks not used by containers, built cache, dangling images 
+
+docker logs <container id> --> To retrieve log outputs without having to pass "-a" flag to "docker start" command 
+
+docker stop <container id> --> TO stop running while allowing it time to shutdown on its own term 
+
+docker kill <container id> --> TO stop running container immediately
+
+"docker stop" eventually resolves to "docker kill" after being unable to shutdown container after 10seconds. 
+
+docker exec -it <container id> <command!> --> Allows us execute additional command in the container 
+
+docker run -it <image name> <command>  --> Allows us to run additional command within the container 
+
