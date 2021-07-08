@@ -1,0 +1,16 @@
+DOCKER CUSTOM IMAGES 
+---------------------------------------------
+Custom images are first built in a Dockerfile. 
+
+Dockerfile is a plain textfile with a couple of lines of configuration placed in it. 
+
+To build a custom image, Dockerfile is passed to docker client which then pass the file to docker daemon. The 
+docker daemon then take all of the configurations and build a usable image out of it. 
+
+About every Dockerfile follow the following steps:
+-----------------------------------------------------------
+1. Specify a base image 
+2. Specify some commands to add some additional programs 
+3. Specify a command to run on container startup 
+
+
