@@ -13,4 +13,15 @@ About every Dockerfile follow the following steps:
 2. Specify some commands to add some additional programs 
 3. Specify a command to run on container startup 
 
+-------------------------------------------------------------------------
+docker build -t <tag name> .
 
+Note: There is a fluid relationship between images and containers. Containers can be made out of images, 
+also, images can be made out of containers.
+
+There is a manual approach of making images out of containers as shown below:
+---------------------------------------------------------------------------------
+docker run -it alpine sh --> This creates a container out of alpine image and prints out a shell 
+terminal within a container
+add apk --update redis --> This runs a redis program within the alpine container
+docker commit -c 'CMD ["redis-server"]' <container id>
