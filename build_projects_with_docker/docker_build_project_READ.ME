@@ -1,0 +1,14 @@
+# Sometimes we might have a problem of not being able to get access to local files in the 
+# container during the build process. The way to make local files accessible in the running container 
+# is through the use of then COPY command
+
+COPY ./<file path in local machine> ./<file system in running container>
+
+The file path in the local machine is relative to the build context 
+
+# when we wanna direct network request from local machine to the container, we use 
+# port mapping and this is not specified in the container but during runtime,
+# It is done using the following command
+
+docker run -p <port on local machine> : <port on the container> <image id/name>
+
