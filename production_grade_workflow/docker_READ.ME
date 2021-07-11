@@ -1,0 +1,45 @@
+Production grade workflow
+----------------------------------
+The essence of this work is to do the following:
+
+1. Create/develop react app on a feature branch
+2. Send to Github, merge to master/main branch 
+3. Send to Travis CI for testing
+4. Deploy to AWS elastic beanstalk 
+
+
+
+
+
+
+
+
+
+
+COMMANDS USED IN THE PROJECT
+---------------------------------------
+sudo npm install -g create-react-app 
+
+create-react-app frontend --> This creates a folder called frontend houses necessary folder 
+for the react app 
+
+docker build -f Dockerfile.dev . --> To build image of react app 
+
+docker run -p 3000:3000 <image id> --> To be able to view the react app on local machine on port 3000 
+
+One of the common problems with running containers have to do with effecting changes made to code files after building
+images without having to rebuild image from scratch, This is done using VOLUME MAPPING.
+
+docker run -p 3000:3000 -v /<app/node_modules> -v <$(pwd):/app> <image id>
+
+-v /<app/node_modules> --> This section of the code above is to tell docker not to reference this directory structure in the 
+container to the local machine. This approach is called bookmarking volumes 
+
+docker run -it <image id/tag> npm run test --> This runs image and overrides the CMD by
+"npm run test"
+
+
+
+
+
+
