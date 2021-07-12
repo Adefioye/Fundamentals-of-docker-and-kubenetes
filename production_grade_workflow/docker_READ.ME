@@ -38,8 +38,9 @@ container to the local machine. This approach is called bookmarking volumes
 docker run -it <image id/tag> npm run test --> This runs image and overrides the CMD by
 "npm run test"
 
+docker attach <container id>  --> We can forward input from our terminal and direct it
+a specific container. 
 
-
-
+docker run -p 8080:80 <image id> --> 80 is the default port that nginx uses
 
 
